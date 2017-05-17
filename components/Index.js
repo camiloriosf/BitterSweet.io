@@ -1,29 +1,17 @@
 import React from 'react';
-import Article from 'grommet/components/Article';
-import { connect } from 'react-redux';
-import * as actions from '../lib/actions/index';
-import IndexHero from './IndexHero';
-import IndexQuote from './IndexQuote';
-import IndexServices from './IndexServices';
-import IndexAbout from './IndexAbout';
-import IndexContact from './IndexContact';
+import Link from 'next/link';
+import Section from 'grommet/components/Section';
+import Heading from 'grommet/components/Heading';
+import Box from 'grommet/components/Box';
+import Button from 'grommet/components/Button';
 
-function mapStateToProps(state) {
-  return {
-    section: state.index.section,
-  };
-}
-
-export default connect(mapStateToProps, actions)(
-  props => (
-    <Article
-      scrollStep selected={props.section} onSelect={section => props.changeSection({ section })}
-    >
-      <IndexHero />
-      <IndexQuote />
-      <IndexServices />
-      <IndexAbout />
-      <IndexContact />
-    </Article>
-  ),
-);
+export default () => (
+  <Section texture="/static/ncx.jpg" full="vertical" justify="center" align="start" pad="large" colorIndex="dark" >
+    <Box textAlign="left" >
+      <Heading uppercase strong >
+        A UNIQUE APPROACH TO SOFTWARE DEV
+      </Heading>
+    </Box>
+    <Link prefetch href="/quote"><Button label="GET AN INSTANT QUOTE" style={{ backgroundColor: '#dc2878', borderColor: '#dc2878' }} /></Link>
+  </Section>
+  );
