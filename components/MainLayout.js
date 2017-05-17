@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import App from 'grommet/components/App';
 
-export default ({ children, title = 'E-SaaS' }) => (
+export default ({ children, title = 'Title' }) => (
   <div>
     <Head>
       <title>{title}</title>
@@ -10,8 +10,7 @@ export default ({ children, title = 'E-SaaS' }) => (
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <link href="//cdnjs.cloudflare.com/ajax/libs/grommet/1.4.0/grommet.min.css" rel="stylesheet" type="text/css" />
     </Head>
-
-    <App>
+    <App centered={false}>
       {children}
     </App>
   </div>
