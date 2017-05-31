@@ -30,13 +30,15 @@ class Quote extends Component {
     let multiplier = 1;
     let summer = 0;
 
+    if (!this.props.web && !this.props.android && !this.props.ios) return 0;
+
     if (this.props.web) multiplier *= 1.25;
 
     if (this.props.android) multiplier *= 1.25;
 
     if (this.props.ios) multiplier *= 1.25;
 
-    if (this.props.responsive) multiplier *= 1.15;
+    if (this.props.responsive && this.props.web) multiplier *= 1.15;
 
     if (this.props.design) multiplier *= 2;
 
@@ -59,11 +61,86 @@ class Quote extends Component {
         break;
     }
 
+    switch (this.props.data) {
+      case 'opt1':
+        multiplier *= 1;
+        break;
+      case 'opt2':
+        multiplier *= 2;
+        break;
+      case 'opt3':
+        multiplier *= 2.25;
+        break;
+      case 'opt4':
+        multiplier *= 1.75;
+        break;
+      default:
+        break;
+    }
+
+    switch (this.props.geolocation) {
+      case 'opt1':
+        summer += 0;
+        break;
+      case 'opt2':
+        summer += 700000;
+        break;
+      case 'opt3':
+        summer += 1000000;
+        break;
+      default:
+        break;
+    }
+
+    summer += this.props.apis * 3500000;
+
+    if (this.props.scheduling) summer += 3500000;
+
+    if (this.props.commerce[0] === 'opt1') summer += 2000000;
+
+    if (this.props.commerce[0] === 'opt2') summer += 3500000;
+
+    if (this.props.commerce[1] === 'opt3') summer += 3500000;
+
+    if (this.props.commerce[1] === 'opt4') summer += 5000000;
+
+    if (this.props.admin) multiplier *= 1.5;
+
+    switch (this.props.product) {
+      case 'opt1':
+        multiplier *= 0.5;
+        break;
+      case 'opt2':
+        multiplier *= 1;
+        break;
+      case 'opt3':
+        multiplier *= 1.5;
+        break;
+      default:
+        break;
+    }
+
+    switch (this.props.delivery) {
+      case 'opt1':
+        multiplier *= 1;
+        break;
+      case 'opt2':
+        multiplier *= 1.25;
+        break;
+      case 'opt3':
+        multiplier *= 1.5;
+        break;
+      default:
+        break;
+    }
+
     return Math.round((this.props.basePrice * multiplier) + summer);
   }
 
   getServicePrice() {
     const service = Math.round(this.getFullPrice() * this.props.basePercentage);
+
+    if (service === 0) return 0;
 
     if (service < this.props.minService) {
       return this.props.minService;
@@ -107,8 +184,8 @@ class Quote extends Component {
           <Value value={this.state.step === 1 ? 0 : Math.round(100 * ((this.state.step - 1) / (this.state.steps - 1)))} units="%" align="start" size="medium" />
           <Meter value={this.state.step === 1 ? 0 : Math.round(100 * ((this.state.step - 1) / (this.state.steps - 1)))} colorIndex="neutral-2" size="medium" />
           <Box direction="row" justify="center" align="center" responsive pad={{ between: 'large' }} >
-            <Value value={this.getServicePrice()} icon={<Cloud size="small" />} label="As a Service" units="CLP/month" size="small" />
-            <Value value={this.getFullPrice()} icon={<Bundle size="small" />} label="Standard" units="CLP" size="small" />
+            <Value value={this.getServicePrice()} icon={<Cloud size="small" />} label="Pay as you Go" units="CLP/month" size="small" />
+            <Value value={this.getFullPrice()} icon={<Bundle size="small" />} label="1-Time Fee" units="CLP" size="small" />
           </Box>
         </Box>
         {this.renderStep()}
@@ -140,6 +217,14 @@ function mapStateToProps(state) {
     pages: state.quote.pages,
     design: state.quote.design,
     auth: state.quote.auth,
+    data: state.quote.data,
+    geolocation: state.quote.geolocation,
+    apis: state.quote.apis,
+    scheduling: state.quote.scheduling,
+    commerce: state.quote.commerce,
+    admin: state.quote.admin,
+    product: state.quote.product,
+    delivery: state.quote.delivery,
   };
 }
 
