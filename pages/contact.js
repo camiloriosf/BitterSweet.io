@@ -4,7 +4,7 @@ import MainLayout from '../components/MainLayout';
 import Contact from '../components/Contact';
 
 export default withData(props => (
-  <MainLayout pathname={props.url.pathname} title="Welcome To ...">
+  <MainLayout pathname={props.url.pathname} title="Contact - BitterSweet.io">
     <Contact />
   </MainLayout>
 ));

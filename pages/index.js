@@ -4,7 +4,7 @@ import MainLayout from '../components/MainLayout';
 import Index from '../components/Index';
 
 export default withData(props => (
-  <MainLayout pathname={props.url.pathname} title="Welcome To ...">
+  <MainLayout pathname={props.url.pathname} title="Welcome To BitterSweet.io">
     <Index />
   </MainLayout>
 ));

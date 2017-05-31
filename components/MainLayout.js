@@ -14,13 +14,15 @@ export default props => (
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <link href="//cdnjs.cloudflare.com/ajax/libs/grommet/1.4.0/grommet.min.css" rel="stylesheet" type="text/css" />
+      { /* <script src="/static/tawk.js" />*/}
+      <script src="/static/smartsupp.js" type="text/javascript" />
     </Head>
     <App centered={false}>
-      <Header fixed float justify="between" pad={{ horizontal: 'medium' }} style={props.pathname === '/' ? { backgroundColor: 'transparent' } : { backgroundColor: '#434343' }} >
+      <Header fixed float justify="between" pad={{ horizontal: 'medium' }} style={props.pathname === '/' ? { backgroundColor: '#434343' } : { backgroundColor: '#434343' }} >
         <Link prefetch href="/">
           <Anchor onClick={() => props.changeSection({ section: 0 })} style={{ textDecoration: 'none', color: '#fff' }}>
             <Title>
-              Company Name
+              BitterSweet
             </Title>
           </Anchor>
         </Link>

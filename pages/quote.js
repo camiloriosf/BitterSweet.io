@@ -4,7 +4,7 @@ import MainLayout from '../components/MainLayout';
 import Quote from '../components/Quote';
 
 export default withData(props => (
-  <MainLayout pathname={props.url.pathname} title="Welcome To ...">
+  <MainLayout pathname={props.url.pathname} title="Quote - BitterSweet.io">
     <Quote />
   </MainLayout>
 ));
