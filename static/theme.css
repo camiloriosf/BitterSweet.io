@@ -1,0 +1,68 @@
+.grommetux-control-icon.grommetux-color-index-brand {
+    fill: #60E19F;
+    stroke: #60E19F;
+}
+
+.grommetux-button--primary:not(.grommetux-button--focus) {
+    border-color: #60E19F;
+}
+
+.grommetux-button--primary {
+    background-color: #60E19F;
+}
+
+.grommetux-button {
+    border: 2px solid #60E19F;
+}
+
+.grommetux-background-color-index--dark .grommetux-background-color-index--light .grommetux-check-box__control-check, .grommetux-background-color-index--light .grommetux-check-box__control-check {
+    stroke: #60E19F;
+}
+
+.grommetux-background-color-index--dark .grommetux-background-color-index--light .grommetux-check-box--toggle .grommetux-check-box__input:checked+.grommetux-check-box__control, .grommetux-background-color-index--light .grommetux-check-box--toggle .grommetux-check-box__input:checked+.grommetux-check-box__control {
+    background-color: #60E19F;
+}
+
+.grommetux-background-color-index--dark .grommetux-background-color-index--light .grommetux-check-box__input:checked+.grommetux-check-box__control, .grommetux-background-color-index--light .grommetux-check-box__input:checked+.grommetux-check-box__control {
+    border-color: #60E19F;
+}
+
+.grommetux-background-color-index--dark .grommetux-background-color-index--light .grommetux-check-box--toggle .grommetux-check-box__input:checked+.grommetux-check-box__control:after, .grommetux-background-color-index--light .grommetux-check-box--toggle .grommetux-check-box__input:checked+.grommetux-check-box__control:after {
+    border-color: #60E19F;
+}
+
+.grommetux-check-box--toggle .grommetux-check-box__input:checked+.grommetux-check-box__control:after {
+    border-color: #60E19F;
+}
+
+.grommetux-background-color-index--dark .grommetux-background-color-index--light .grommetux-button:not(.grommetux-button--disabled):not(.grommetux-button--plain):not(.grommetux-button--fill).grommetux-button--primary:hover, .grommetux-background-color-index--dark .grommetux-background-color-index--light .grommetux-button:not(.grommetux-button--disabled):not(.grommetux-button--plain):not(.grommetux-button--fill):hover, .grommetux-background-color-index--light .grommetux-button:not(.grommetux-button--disabled):not(.grommetux-button--plain):not(.grommetux-button--fill).grommetux-button--primary:hover, .grommetux-background-color-index--light .grommetux-button:not(.grommetux-button--disabled):not(.grommetux-button--plain):not(.grommetux-button--fill):hover {
+    box-shadow: 0 0 0 2px #60E19F;
+}
+
+.grommetux-background-color-index--dark .grommetux-background-color-index--light .grommetux-radio-button__input:checked+.grommetux-radio-button__control, .grommetux-background-color-index--light .grommetux-radio-button__input:checked+.grommetux-radio-button__control {
+    border-color: #60E19F;
+}
+
+.grommetux-radio-button__control {
+    color: #60E19F;
+}
+
+.grommetux-background-color-index--dark .grommetux-background-color-index--light .grommetux-radio-button__input:checked+.grommetux-radio-button__control:after, .grommetux-background-color-index--light .grommetux-radio-button__input:checked+.grommetux-radio-button__control:after {
+    background-color: #60E19F;
+}
+
+.grommetux-radio-button__input:checked+.grommetux-radio-button__control:after {
+    background-color: #60E19F;
+}
+
+.grommetux-background-color-index--dark .grommetux-background-color-index--light .grommetux-button, .grommetux-background-color-index--light .grommetux-button {
+    border-color: #60E19F;
+}
+
+.grommetux-button--plain:not(.grommetux-button--focus) {
+    border: 2px solid transparent;
+}
+
+.grommetux-button--critical:not(.grommetux-button--focus) {
+    border-color: #ff324d;
+}

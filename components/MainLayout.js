@@ -14,6 +14,7 @@ export default props => (
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <link href="//cdnjs.cloudflare.com/ajax/libs/grommet/1.4.0/grommet.min.css" rel="stylesheet" type="text/css" />
+      <link href="/static/theme.css" rel="stylesheet" type="text/css" />
       { /* <script src="/static/tawk.js" />*/}
       <script src="/static/smartsupp.js" type="text/javascript" />
     </Head>
