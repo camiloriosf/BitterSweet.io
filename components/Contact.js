@@ -31,7 +31,7 @@ class Contact extends Component {
   handleSubmit(event) {
     event.preventDefault();
     if (!this.state.name || !this.state.email || !this.state.comment) {
-      return this.props.submitError({ message: 'You must complete all the fields' });
+      return this.props.submitError({ message: 'You must complete all fields' });
     }
 
     if (this.state.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(this.state.email)) {

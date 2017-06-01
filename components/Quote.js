@@ -7,6 +7,7 @@ import Button from 'grommet/components/Button';
 import Bundle from 'grommet/components/icons/base/Bundle';
 import Cloud from 'grommet/components/icons/base/Cloud';
 import { connect } from 'react-redux';
+import * as actions from '../lib/actions/index';
 import First from './quote/01';
 import Second from './quote/02';
 import Third from './quote/03';
@@ -24,6 +25,10 @@ class Quote extends Component {
     super(props);
 
     this.state = { step: 1, steps: 11 };
+  }
+
+  componentDidUpdate() {
+    this.props.updatePrice({ service: this.getServicePrice(), fee: this.getFullPrice() });
   }
 
   getFullPrice() {
@@ -184,20 +189,20 @@ class Quote extends Component {
           <Value value={this.state.step === 1 ? 0 : Math.round(100 * ((this.state.step - 1) / (this.state.steps - 1)))} units="%" align="start" size="medium" />
           <Meter value={this.state.step === 1 ? 0 : Math.round(100 * ((this.state.step - 1) / (this.state.steps - 1)))} colorIndex="neutral-2" size="medium" />
           <Box direction="row" justify="center" align="center" responsive pad={{ between: 'large' }} >
-            <Value value={this.getServicePrice()} icon={<Cloud size="small" />} label="Pay as you Go" units="CLP/month" size="small" />
-            <Value value={this.getFullPrice()} icon={<Bundle size="small" />} label="1-Time Fee" units="CLP" size="small" />
+            <Value value={this.props.service} icon={<Cloud size="small" />} label="Pay as you Go" units="CLP/month" size="small" />
+            <Value value={this.props.fee} icon={<Bundle size="small" />} label="1-Time Fee" units="CLP" size="small" />
           </Box>
         </Box>
         {this.renderStep()}
         <Box direction="row" justify="center" align="center" responsive>
+          {this.state.step === this.state.steps
+          ? <Box margin="small"><Button label="submit quote" onClick={() => this.props.hideQuoteForm(false)} critical /></Box>
+          : null}
           {this.state.step > 1
           ? <Box margin="small"><Button label="previous step" onClick={() => { this.setState({ step: this.state.step - 1 }); }} /></Box>
           : null}
           {this.state.step < this.state.steps
           ? <Box margin="small"><Button label="next step" onClick={() => { this.setState({ step: this.state.step + 1 }); }} primary /></Box>
-          : null}
-          {this.state.step === this.state.steps
-          ? <Box margin="small"><Button label="SEND" onClick={() => true} critical /></Box>
           : null}
         </Box>
       </Section>
@@ -207,6 +212,8 @@ class Quote extends Component {
 
 function mapStateToProps(state) {
   return {
+    fee: state.quote.fee,
+    service: state.quote.service,
     basePrice: state.quote.basePrice,
     basePercentage: state.quote.basePercentage,
     minService: state.quote.minService,
@@ -228,4 +235,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, null)(Quote);
+export default connect(mapStateToProps, actions)(Quote);
