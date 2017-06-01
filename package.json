@@ -2,6 +2,10 @@
   "name": "dev_company",
   "version": "1.0.0",
   "description": "",
+  "now": {
+    "alias": ["bittersweet.io", "www.bittersweet.io"],
+    "public": false
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",
