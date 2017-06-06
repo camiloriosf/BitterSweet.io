@@ -26,6 +26,7 @@ export default connect(mapStateToProps, null)(
           <link href="//cdnjs.cloudflare.com/ajax/libs/grommet/1.4.0/grommet.min.css" rel="stylesheet" type="text/css" />
           <link href="/static/theme.css" rel="stylesheet" type="text/css" />
           <script src="/static/zendesk.js" type="text/javascript" />
+          <script src="/static/google.js" type="text/javascript" />
         </Head>
         <App centered={false}>
           <Animate visible={header} enter={{ animation: 'slide-down', duration: 100, delay: 0 }} leave={{ animation: 'slide-up', duration: 500, delay: 0 }} keep>
