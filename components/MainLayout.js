@@ -6,17 +6,8 @@ import Header from 'grommet/components/Header';
 import Title from 'grommet/components/Title';
 import Box from 'grommet/components/Box';
 import Anchor from 'grommet/components/Anchor';
-import Animate from 'grommet/components/Animate';
-import { connect } from 'react-redux';
 
-function mapStateToProps(state) {
-  return {
-    header: state.index.header,
-  };
-}
-
-export default connect(mapStateToProps, null)(
-  ({ children, title, pathname, header }) =>
+export default ({ children, title, pathname }) =>
     (
       <div>
         <Head>
@@ -29,25 +20,22 @@ export default connect(mapStateToProps, null)(
           <script src="/static/google.js" type="text/javascript" />
         </Head>
         <App centered={false}>
-          <Animate visible={header} enter={{ animation: 'slide-down', duration: 100, delay: 0 }} leave={{ animation: 'slide-up', duration: 500, delay: 0 }} keep>
-            <Header fixed float justify="between" pad={{ horizontal: 'medium' }} style={pathname === '/' ? { backgroundColor: 'transparent' } : { backgroundColor: '#434343' }} >
-              <Link prefetch href="/">
-                <Anchor style={{ textDecoration: 'none', color: '#fff' }}>
-                  <Title>
-                    BitterSweet
-                  </Title>
-                </Anchor>
-              </Link>
-              <Box flex justify="end" direction="row" responsive wrap>
-                <Link prefetch href="/quote"><Anchor label="QUOTE" style={pathname === '/quote' ? { marginRight: 30, color: '#fff', textDecoration: 'underline' } : { marginRight: 30, color: '#fff', textDecoration: 'none' }} /></Link>
-                <Link prefetch href="/services"><Anchor label="SERVICES" style={pathname === '/services' ? { marginRight: 30, color: '#fff', textDecoration: 'underline' } : { marginRight: 30, color: '#fff', textDecoration: 'none' }} /></Link>
-                <Link prefetch href="/about"><Anchor label="ABOUT" style={pathname === '/about' ? { marginRight: 30, color: '#fff', textDecoration: 'underline' } : { marginRight: 30, color: '#fff', textDecoration: 'none' }} /></Link>
-                <Link prefetch href="/contact"><Anchor label="CONTACT" style={pathname === '/contact' ? { color: '#fff', textDecoration: 'underline' } : { color: '#fff', textDecoration: 'none' }} /></Link>
-              </Box>
-            </Header>
-          </Animate>
+          <Header fixed float justify="between" pad={{ horizontal: 'medium' }} style={pathname === '/' ? { backgroundColor: 'transparent' } : { backgroundColor: '#434343' }} >
+            <Link prefetch href="/">
+              <Anchor style={{ textDecoration: 'none', color: '#fff' }}>
+                <Title>
+                  BitterSweet
+                </Title>
+              </Anchor>
+            </Link>
+            <Box flex justify="end" direction="row" responsive wrap>
+              <Link prefetch href="/quote"><Anchor label="QUOTE" style={pathname === '/quote' ? { marginRight: 30, color: '#fff', textDecoration: 'underline' } : { marginRight: 30, color: '#fff', textDecoration: 'none' }} /></Link>
+              <Link prefetch href="/services"><Anchor label="SERVICES" style={pathname === '/services' ? { marginRight: 30, color: '#fff', textDecoration: 'underline' } : { marginRight: 30, color: '#fff', textDecoration: 'none' }} /></Link>
+              <Link prefetch href="/about"><Anchor label="ABOUT" style={pathname === '/about' ? { marginRight: 30, color: '#fff', textDecoration: 'underline' } : { marginRight: 30, color: '#fff', textDecoration: 'none' }} /></Link>
+              <Link prefetch href="/contact"><Anchor label="CONTACT" style={pathname === '/contact' ? { color: '#fff', textDecoration: 'underline' } : { color: '#fff', textDecoration: 'none' }} /></Link>
+            </Box>
+          </Header>
           {children}
         </App>
       </div>
-  ),
-);
+  );
