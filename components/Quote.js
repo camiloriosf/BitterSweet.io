@@ -184,7 +184,7 @@ class Quote extends Component {
 
   render() {
     return (
-      <Section justify="start" full="vertical" align="center" pad="small" colorIndex="light-2" margin={{ top: 'large' }} >
+      <Section justify="start" full="vertical" align="center" pad="small" colorIndex="light-2" >
         <Box align="center" margin={{ top: 'medium' }}>
           <Value value={this.state.step === 1 ? 0 : Math.round(100 * ((this.state.step - 1) / (this.state.steps - 1)))} units="%" align="start" size="medium" />
           <Meter value={this.state.step === 1 ? 0 : Math.round(100 * ((this.state.step - 1) / (this.state.steps - 1)))} colorIndex="neutral-2" size="medium" />

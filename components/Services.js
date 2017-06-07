@@ -8,7 +8,7 @@ import Money from 'grommet/components/icons/base/Money';
 import Unlock from 'grommet/components/icons/base/Unlock';
 
 export default () => (
-  <Section justify="start" align="center" pad="small" colorIndex="light-2" margin={{ top: 'large' }} >
+  <Section justify="start" align="center" pad="small" colorIndex="light-2" >
     <Box align="center" margin={{ top: 'medium' }} full="horizontal" textAlign="center">
       <Heading uppercase strong >
         Services

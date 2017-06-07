@@ -20,7 +20,7 @@ export default ({ children, title, pathname }) =>
           <script src="/static/google.js" type="text/javascript" />
         </Head>
         <App centered={false}>
-          <Header fixed float justify="between" pad={{ horizontal: 'medium' }} style={pathname === '/' ? { backgroundColor: 'transparent' } : { backgroundColor: '#434343' }} >
+          <Header fixed float={pathname === '/'} justify="between" pad={{ horizontal: 'medium' }} style={pathname === '/' ? { backgroundColor: 'transparent' } : { backgroundColor: '#434343' }} >
             <Link prefetch href="/">
               <Anchor style={{ textDecoration: 'none', color: '#fff' }}>
                 <Title>
@@ -31,7 +31,7 @@ export default ({ children, title, pathname }) =>
             <Box flex justify="end" direction="row" responsive wrap>
               <Link prefetch href="/quote"><Anchor label="QUOTE" style={pathname === '/quote' ? { marginRight: 30, color: '#fff', textDecoration: 'underline' } : { marginRight: 30, color: '#fff', textDecoration: 'none' }} /></Link>
               <Link prefetch href="/services"><Anchor label="SERVICES" style={pathname === '/services' ? { marginRight: 30, color: '#fff', textDecoration: 'underline' } : { marginRight: 30, color: '#fff', textDecoration: 'none' }} /></Link>
-              <Link prefetch href="/about"><Anchor label="ABOUT" style={pathname === '/about' ? { marginRight: 30, color: '#fff', textDecoration: 'underline' } : { marginRight: 30, color: '#fff', textDecoration: 'none' }} /></Link>
+              <Link prefetch href="/how"><Anchor label="HOW" style={pathname === '/how' ? { marginRight: 30, color: '#fff', textDecoration: 'underline' } : { marginRight: 30, color: '#fff', textDecoration: 'none' }} /></Link>
               <Link prefetch href="/contact"><Anchor label="CONTACT" style={pathname === '/contact' ? { color: '#fff', textDecoration: 'underline' } : { color: '#fff', textDecoration: 'none' }} /></Link>
             </Box>
           </Header>
